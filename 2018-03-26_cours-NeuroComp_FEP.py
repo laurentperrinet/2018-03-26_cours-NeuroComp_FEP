@@ -9,6 +9,18 @@ DEBUG = False
 Course on Computational Neuroscience : Bayes
 
 """
+figpath_bcp = 'figures' # os.path.join(home, 'pool/ANR-REM/ASPEM_REWARD/AnticipatorySPEM/2017-11-24_Poster_GDR_Robotique/figures')
+
+
+import sys
+#print(sys.argv)
+tag = sys.argv[1].split('.')[0]
+slides_filename = sys.argv[1]
+print('😎 Welcome to the script generating the slides for ', tag)
+YYYY = int(tag[:4])
+MM = int(tag[5:7])
+DD = int(tag[8:10])
+
 import os
 home = os.environ['HOME']
 
@@ -24,8 +36,10 @@ meta = dict(
  height= int(1000*height_ratio),
  #margin= 0.1618,#
  margin= 0.1,#
- #reveal_path = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/',
- reveal_path = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.4.1/',
+ reveal_path = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/',
+ #reveal_path = 'https://s3.amazonaws.com/hakim-static/reveal-js/',
+ reveal_path = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/',
+ #reveal_path = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.4.1/',
  theme='simple',
  author='',
  author_link='<a href=mailto:laurent.perrinet@univ-amu.fr>Laurent Udo Perrinet, INT</a>',
@@ -42,6 +56,49 @@ meta = dict(
     'Active inference, EMs & oculomotor delays',
     'Take-home message']
  )
+
+
+# https://pythonhosted.org/PyQRCode/rendering.html
+# pip3 install pyqrcode
+# pip3 install pypng
+figname = os.path.join(figpath_bcp, 'qr.png')
+if not os.path.isfile(figname):
+ import pyqrcode as pq
+
+ code = pq.create(meta['url'])
+ code.png(figname, scale=5)
+
+print("""
+#acl All:read
+
+= {title}  =
+
+Quoi:: {conference}
+Qui::
+Quand:: {DD}/{MM}/{YYYY}
+Où:: Salle des voutes campus Saint Charles
+Support visuel:: http://blog.invibe.net/files/{tag}.html
+
+== reference ==
+{{{{{{
+#!bibtex
+@inproceedings{{{tag},
+	Author = "{author}",
+ Booktitle = "{conference}",
+ Title = "{title}",
+	Url = "{url}",
+	Year = "{YYYY}",
+}}
+}}}}}}
+## add an horizontal rule to end the include
+
+----
+<<Include(BibtexNote)>>
+----
+TagTalks TagYear18 TagPublic
+
+""".format(**meta) )
+
 do_section = [True] * (len(meta['sections']) + 2)
 i_section = 0
 s = Slides(meta)
@@ -766,6 +823,5 @@ Thanks for you attention!
 """)
     s.close_section()
 
-import sys
-print(sys.argv)
-s.compile(filename=sys.argv[1])
+
+s.compile(filename=slides_filename)
