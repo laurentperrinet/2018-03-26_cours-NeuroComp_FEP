@@ -1,4 +1,4 @@
-default: html
+default: show
 
 SRC=2018-03-26_cours-NeuroComp_FEP
 
@@ -7,6 +7,11 @@ edit:
 
 html:
 	python3 $(SRC).py $(SRC).html
+
+page:
+	open https://invibe.net/cgi-bin/index.cgi/Presentations/$(SRC)?action=edit
+
+show: html
 	open -a safari $(SRC).html
 
 blog:
