@@ -4,4 +4,3 @@ matplotlib
 version-information
 vispy
 watermark
-tikzmagic
