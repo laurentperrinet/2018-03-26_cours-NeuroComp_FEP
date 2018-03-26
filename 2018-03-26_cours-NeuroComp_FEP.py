@@ -49,7 +49,7 @@ meta = dict(
  title="""Probabilities, Bayes and the Free-energy principle""",
  short_title='',
  location='R+1, INT',
- conference='PhD program in  Neuroscience, Marseille <BR> March 27th, 2018 <BR> ⓦ <a href="https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp">https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp</a><BR>Presentation made with <a href="http://laurentperrinet.github.io/slides.py/index.html">slides.py</a>',
+ conference='PhD program in  Neuroscience, Marseille <BR> March 27th, 2018 <BR> ⓦ <a href="https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp_FEP">https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp_FEP</a><BR>Presentation made with <a href="http://laurentperrinet.github.io/slides.py/index.html">slides.py</a>',
  YYYY = YYYY,
  MM = MM,
  DD = DD,
@@ -80,11 +80,11 @@ print("""
 {{{{{{
 #!bibtex
 @inproceedings{{{tag},
-	Author = "{author}",
+    Author = "{author}",
     Booktitle = "{conference}",
     Title = "{title}",
-	Url = "{url}",
-	Year = "{YYYY}",
+    Url = "{url}",
+    Year = "{YYYY}",
 }}
 }}}}}}
 ## add an horizontal rule to end the include
@@ -234,7 +234,7 @@ if do_section[i_section]:
     title = meta['sections'][i_section]
     s.add_slide_outline(i_section)
 
-    bib =  'Let''s <a href="https://try.jupyter.org/">try</a> this using this <a href="http://blog.invibe.net/posts/2017-03-09_probabilities.ipynb">notebook</a> (<a href="http://blog.invibe.net/posts/2017-03-09_probabilities.html">solution</a>)'
+    bib =  'Let''s <a href="https://try.jupyter.org/">try</a> this using this <a href="https://mybinder.org/v2/gh/laurentperrinet/2018-03-26_cours-NeuroComp_FEP/master?filepath=src%2F2017-03-09_probabilities.ipynb">notebook</a> (<a href="http://blog.invibe.net/posts/2017-03-09_probabilities.html">solution</a>)'
 
     s.add_slide(content=s.content_figures(
            [os.path.join(figpath, 'prob-dice.png')], cell_bgcolor=bgcolor,
