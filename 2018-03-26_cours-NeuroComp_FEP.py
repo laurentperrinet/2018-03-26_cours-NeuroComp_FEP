@@ -27,7 +27,7 @@ home = os.environ['HOME']
 # see https://github.com/laurentperrinet/slides.py
 from slides import Slides
 height_px = 80
-height_ratio = 1.2
+height_ratio = .9
 
 meta = dict(
  embed = True,
@@ -48,6 +48,7 @@ meta = dict(
  author_link='<a href=mailto:laurent.perrinet@univ-amu.fr>Laurent Udo Perrinet, INT</a>',
  title="""Probabilities, Bayes and the Free-energy principle""",
  short_title='',
+ location='R+1, INT',
  conference='PhD program in  Neuroscience, Marseille <BR> March 27th, 2018 <BR> ⓦ <a href="https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp">https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp</a><BR>Presentation made with <a href="http://laurentperrinet.github.io/slides.py/index.html">slides.py</a>',
  YYYY = YYYY,
  MM = MM,
@@ -64,35 +65,24 @@ meta = dict(
     'Take-home message']
  )
 
-
-# https://pythonhosted.org/PyQRCode/rendering.html
-# pip3 install pyqrcode
-# pip3 install pypng
-figname = os.path.join(figpath_bcp, 'qr.png')
-if not os.path.isfile(figname):
- import pyqrcode as pq
-
- code = pq.create(meta['url'])
- code.png(figname, scale=5)
-
 print("""
 #acl All:read
 
 = {title}  =
 
-Quoi:: {conference}
-Qui::
-Quand:: {DD}/{MM}/{YYYY}
-Où:: Salle des voutes campus Saint Charles
-Support visuel:: http://blog.invibe.net/files/{tag}.html
+ Quoi:: {conference}
+ Qui::
+ Quand:: {DD}/{MM}/{YYYY}
+ Où:: {location}
+ Support visuel:: http://blog.invibe.net/files/{tag}.html
 
 == reference ==
 {{{{{{
 #!bibtex
 @inproceedings{{{tag},
 	Author = "{author}",
- Booktitle = "{conference}",
- Title = "{title}",
+    Booktitle = "{conference}",
+    Title = "{title}",
 	Url = "{url}",
 	Year = "{YYYY}",
 }}
@@ -111,9 +101,8 @@ i_section = 0
 s = Slides(meta)
 s.meta['Acknowledgements'] ="""<h3>Acknowledgements:</h3>
    <ul>
-    <li>Anna Montagnini, INT</li>
-    <li>Nicole Malfait, INT</li>
-    <li>Frédéric Chavane, INT</li>
+    <li>Laurent Pezard & Demian Battaglia, INS</li>
+    <li>Anna Montagnini, Nicole Malfait & Frédéric Chavane, INT</li>
     <li>Stéphanie Ouine, PhD program</li>
     </ul>
     <BR>
@@ -167,9 +156,24 @@ Check-list:
 * (SHOW TITLE) of interest for biologists to understand what the neural activity (or behavior) they record relates to something relevant (a function, a particular object)
 
  """)
+
+    figpath = 'figures'
+
+    figname = os.path.join(figpath_bcp, 'qr.png')
+    if not os.path.isfile(figname):
+        # https://pythonhosted.org/PyQRCode/rendering.html
+        # pip3 install pyqrcode
+        # pip3 install pypng
+        import pyqrcode as pq
+
+        code = pq.create(meta['url'])
+        code.png(figname, scale=5)
+
+    s.add_slide(content=s.content_figures([figname], cell_bgcolor=bgcolor, height=s.meta['height']*height_ratio),
+    notes=""" All the material is available online - please flash this QRcode """)
+
     # open questions:
     #figpath = '../2017-03-06_cours-NeuroComp_intro/figures'
-    figpath = 'figures'
     bib =  '(see this <a href=" http://viperlib.york.ac.uk/areas/15-anatomy-physiology/contributions/2032-hubel-and-wiesel">viperlib</a> page)'
 
     for fname in ['scientists.jpg']:
