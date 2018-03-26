@@ -27,7 +27,7 @@ home = os.environ['HOME']
 # see https://github.com/laurentperrinet/slides.py
 from slides import Slides
 height_px = 80
-height_ratio = .9
+height_ratio = .82
 
 meta = dict(
  embed = True,
@@ -35,7 +35,7 @@ meta = dict(
  width= int(1600*height_ratio),
  height= int(1000*height_ratio),
  #margin= 0.1618,#
- margin= 0.1,#
+ margin= 0.05,#
  #reveal_path = 'https://s3.amazonaws.com/hakim-static/reveal-js/',
  reveal_path = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/',
  #reveal_path = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.4.1/',
