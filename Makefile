@@ -24,7 +24,7 @@ blog:
 	open -a safari http://blog.invibe.net/files/$(SRC).html
 
 github:
-	# jupyter nbconvert --to notebook --ClearOutputPreprocessor.enabled=True  --inplace src/2017-03-09_probabilities.ipynb
-	# jupyter nbconvert --to notebook --ClearOutputPreprocessor.enabled=True  --inplace src/2017-01-15-bogacz-2017-a-tutorial-on-free-energy.ipynb
+	jupyter nbconvert --to notebook --ClearOutputPreprocessor.enabled=True  --inplace src/2017-03-09_probabilities.ipynb
+	jupyter nbconvert --to notebook --ClearOutputPreprocessor.enabled=True  --inplace src/2017-01-15-bogacz-2017-a-tutorial-on-free-energy.ipynb
 	git commit -am' compiling using make'
 	git push
