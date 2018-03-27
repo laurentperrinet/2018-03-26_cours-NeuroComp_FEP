@@ -709,9 +709,9 @@ if do_section[i_section]:
     freemove_bib = s.content_bib("LP, Adams and Friston", "2015", 'Biological Cybernetics, <a href="http://invibe.net/LaurentPerrinet/Publications/PerrinetAdamsFriston14">http://invibe.net/LaurentPerrinet/Publications/PerrinetAdamsFriston14</a>')
 
     #for fname in ['figure1.png', 'figure2.png']:
-    figpath_law = os.path.join(home, 'quantic/2016_science/2016-10-13_LAW/figures')
+    # figpath_law = os.path.join(home, 'quantic/2016_science/2016-10-13_LAW/figures')
     figpath = 'figures/'
-    for figpath, fname, note in zip([figpath_law, figpath_law, 'figures/', 'figures/'], ['friston_figure1.png', 'friston_figure2.png', 'PAF14equations.png', 'PAF14equations2.png'], ["""
+    for figpath, fname, note in zip(['figures/', 'figures/', 'figures/', 'figures/'], ['friston_figure1.png', 'friston_figure2.png', 'PAF14equations.png', 'PAF14equations2.png'], ["""
 
 * This schematic shows the dependencies among various quantities modelling exchanges of an agent with the environment. It shows the states of the environment and the system in terms of a probabilistic dependency graph, where connections denote directed (causal) dependencies. The quantities are described within the nodes of this graph -- with exemplar forms for their dependencies on other variables.
 
@@ -737,7 +737,7 @@ Applying such an operator to the FEM generates a slightly different and more com
 # >>> Lup IS HERE <<<
     notes=note)
 
-    figpath = os.path.join(home, 'quantic/2016_science/2016-10-13_LAW/figures')
+    # figpath = os.path.join(home, 'quantic/2016_science/2016-10-13_LAW/figures')
 
 
     s.add_slide(content="""
