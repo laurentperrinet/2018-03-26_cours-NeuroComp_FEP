@@ -219,7 +219,7 @@ but in order to perform this inverse problem it is necessarary to put all inform
 
     bib2 = s.content_bib("Ernst & Bülthoff", "2004", "Trends in Cognitive Sciences", url="http://dx.doi.org/10.1016/j.tics.2004.02.002")
 
-    for fname, bib in [('dotsconvex.jpeg', ''), ('dotsconcave.jpeg', ''), ('hollow_mask.jpg', ''), ('jov-2-6-6-fig002.jpeg', bib), ('7b90ecdea9.jpg', bib2) ]:
+    for fname, bib in [ ('7b90ecdea9.jpg', bib2), ('dotsconvex.jpeg', ''), ('dotsconcave.jpeg', ''), ('hollow_mask.jpg', ''), ('jov-2-6-6-fig002.jpeg', bib), ]:
         s.add_slide(content=s.content_figures(
            [os.path.join(figpath, fname)], cell_bgcolor=bgcolor,
            title='Examples of Bayesian mechanisms in perception', height=s.meta['height']*height_ratio) + bib,
@@ -289,6 +289,7 @@ Visually, this looks like some of the squares swelling with extra probability, a
 But while that might look kind of cool, it’s isn’t very useful for understanding what’s going on.
 
 
+
                         """), ('2D-factored-rain-arrow', """
 
 Instead, let’s focus on one variable like the weather. We know how probable it is that it’s sunny or raining. For both cases, we can look at the conditional probabilities. How likely am I to wear a t-shirt if it’s sunny? How likely am I to wear a coat if it’s raining?
@@ -304,9 +305,10 @@ p(x,y)=p(x)⋅p(y|x)
 We’re factoring the distribution, breaking it down into the product of two pieces. First we look at the probability that one variable, like the weather, will take on a certain value. Then we look at the probability that another variable, like my clothing, will take on a certain value conditioned on the first variable.
 
 
+
                         """), ('2D-factored1-clothing-B', """
 
-The choice of which variable to start with is arbitrary. We could just as easily start by focusing on my clothing and then look at the weather conditioned on it. This might feel a bit less intuitive, because we understand that there’s a causal relationship of the weather influencing what I wear and not the other way around… but it still works!
+The key point is that the choice of which variable to start with is arbitrary. We could just as easily start by focusing on my clothing and then look at the weather conditioned on it. This might feel a bit less intuitive, because we understand that there’s a causal relationship of the weather influencing what I wear and not the other way around… but it is the basis of probabilistic inference: inverting the encoding / decoding problem.
 
 Let’s go through an example. If we pick a random day, there’s a 38% chance that I’d be wearing a coat. If we know that I’m wearing a coat, how likely is it that it’s raining? Well, I’m more likely to wear a coat in the rain than in the sun, but rain is kind of rare in California, and so it works out that there’s a 50% chance that it’s raining. And so, the probability that it’s raining and I’m wearing a coat is the probability that I’m wearing a coat (38%), times the probability that it would be raining if I was wearing a coat (50%) which is approximately 19%.
 
@@ -336,8 +338,11 @@ if do_section[i_section]:
     title = meta['sections'][i_section]
     s.add_slide_outline(i_section, notes="""
 
-Great; but now, what if I want to learn the right parameters instead of scanning all of them?
-A solution lies in the Free-energy princple from Karl Friston, and I will give here an introduction to this technique
+Great, we now know how to perform bayesian inference;
+
+but now, what if I want to learn the right parameters?
+
+A solution lies in the Free-energy principle champinoed from Karl Friston, and I will give here an introduction to this technique
 """)
 
     karl_bib = s.content_bib("Friston", "2010", "Nat Neuro Reviews", url="http://www.nature.com/nrn/journal/v11/n2/abs/nrn2787.html")
@@ -355,7 +360,7 @@ A solution lies in the Free-energy princple from Karl Friston, and I will give h
     bogacz_bib = s.content_bib("Bogacz", "2017", "Journal of Mathematical Psychology", url="http://dx.doi.org/10.1016/j.jmp.2015.11.003")
 
     s.add_slide(content=s.content_figures(
-       [os.path.join(figpath, 'bogacz-fig3.jpg')], cell_bgcolor=bgcolor,
+       [os.path.join(figpath, 'bogacz-fig3.png')], cell_bgcolor=bgcolor,
        title=title, height=s.meta['height']*height_ratio) + bogacz_bib,
           notes="""
 

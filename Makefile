@@ -16,6 +16,8 @@ show: html
 
 blog:
 	python3 $(SRC).py $(SRC).html
+	jupyter nbconvert --to notebook --execute  --inplace src/2017-03-09_probabilities.ipynb
+	jupyter nbconvert --to notebook --execute  --inplace src/2017-01-15-bogacz-2017-a-tutorial-on-free-energy.ipynb
 	rsync -av src/2017-01-15-bogacz-2017-a-tutorial-on-free-energy.ipynb ~/pool/blog/invibe/posts/
 	rsync -av src/2017-03-09_probabilities.ipynb ~/pool/blog/invibe/posts/
 	rsync -av $(SRC).html ~/pool/blog/invibe/files/
