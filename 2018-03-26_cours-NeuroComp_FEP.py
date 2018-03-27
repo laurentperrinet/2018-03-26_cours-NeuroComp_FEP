@@ -61,8 +61,8 @@ meta = dict(
  sections= ['Problem statement',
     'Probabilities and Bayesian inference',
     'Variational Inference and the Free-energy principle',
-    'Active inference, EMs & oculomotor delays',
     'Practical example: How to decode neural activity?',
+    'Active inference, EMs & oculomotor delays',
     'Take-home message']
  )
 
