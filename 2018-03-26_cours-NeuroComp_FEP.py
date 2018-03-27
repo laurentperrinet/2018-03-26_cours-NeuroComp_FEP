@@ -27,15 +27,15 @@ home = os.environ['HOME']
 # see https://github.com/laurentperrinet/slides.py
 from slides import Slides
 height_px = 80
-height_ratio = .88
+height_ratio = .7
 
 meta = dict(
  embed = True,
  draft = DEBUG, # show notes etc
- width= int(1600*height_ratio),
- height= int(1000*height_ratio),
+ width= int(1600),#*height_ratio),
+ height= int(1000),#*height_ratio),
  #margin= 0.1618,#
- margin= 0.0,#
+ margin= 0.1,#
  #reveal_path = 'https://s3.amazonaws.com/hakim-static/reveal-js/',
  #reveal_path = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/',
  #reveal_path = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.4.1/',
@@ -48,8 +48,9 @@ meta = dict(
  author='',
  author_link='<a href=mailto:laurent.perrinet@univ-amu.fr>Laurent Udo Perrinet, INT</a>',
  title="""Probabilities, Bayes and the Free-energy principle""",
- short_title='',
+ short_title='Probabilities, Bayes and the Free-energy principle',
  location='R+1, INT',
+ short_conference='PhD program in  Neuroscience, Marseille - March 27th, 2018',
  conference='PhD program in  Neuroscience, Marseille <BR> March 27th, 2018 <BR> ⓦ <a href="https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp_FEP">https://invibe.net/LaurentPerrinet/Presentations/2018-03-26_cours-NeuroComp_FEP</a><BR>Presentation made with <a href="http://laurentperrinet.github.io/slides.py/index.html">slides.py</a>',
  YYYY = YYYY,
  MM = MM,
