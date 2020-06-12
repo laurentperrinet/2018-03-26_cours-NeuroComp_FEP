@@ -9,7 +9,7 @@ html:
 	python3 $(SRC).py $(SRC).html
 
 page:
-	open https://invibe.net/cgi-bin/index.cgi/Presentations/$(SRC)?action=edit
+	open https://URL.net/cgi-bin/index.cgi/Presentations/$(SRC)?action=edit
 
 show: html
 	open -a safari $(SRC).html
