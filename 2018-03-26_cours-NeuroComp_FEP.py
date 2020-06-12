@@ -56,7 +56,7 @@ meta = dict(
  MM = MM,
  DD = DD,
  tag = tag,
- url = 'http://invibe.net/LaurentPerrinet/Presentations/' + tag,
+ url = 'https://laurentperrinet.github.io/talk/' + tag,
  abstract="""
 """,
  sections= ['Problem statement',
@@ -76,7 +76,7 @@ print("""
  Qui::
  Quand:: {DD}/{MM}/{YYYY}
  Où:: {location}
- Support visuel:: http://blog.invibe.net/files/{tag}.html
+ Support visuel:: https://laurentperrinet.github.io/sciblog/files/{tag}.html
 
 == reference ==
 {{{{{{
@@ -242,7 +242,7 @@ if do_section[i_section]:
     title = meta['sections'][i_section]
     s.add_slide_outline(i_section)
 
-    bib =  'Let''s <a href="https://try.jupyter.org/">try</a> this using this <a href="https://mybinder.org/v2/gh/laurentperrinet/2018-03-26_cours-NeuroComp_FEP/master?filepath=src%2F2017-03-09_probabilities.ipynb">notebook</a> (<a href="http://blog.invibe.net/posts/2017-03-09_probabilities.html">solution</a>)'
+    bib =  'Let''s <a href="https://try.jupyter.org/">try</a> this using this <a href="https://mybinder.org/v2/gh/laurentperrinet/2018-03-26_cours-NeuroComp_FEP/master?filepath=src%2F2017-03-09_probabilities.ipynb">notebook</a> (<a href="https://laurentperrinet.github.io/sciblog/posts/2017-03-09_probabilities.html">solution</a>)'
 
     s.add_slide(content=s.content_figures(
            [os.path.join(figpath, 'prob-dice.png')], cell_bgcolor=bgcolor,
@@ -356,7 +356,7 @@ A solution lies in the Free-energy principle champinoed from Karl Friston, and I
 """)
 
 
-    bib =  'Let''s <a href="https://try.jupyter.org/">try</a> this using this <a href="https://mybinder.org/v2/gh/laurentperrinet/2018-03-26_cours-NeuroComp_FEP/master?filepath=src%2F2017-01-15-bogacz-2017-a-tutorial-on-free-energy.ipynb">notebook</a> (<a href="http://blog.invibe.net/posts/2017-01-15-bogacz-2017-a-tutorial-on-free-energy.html">solution</a>)'
+    bib =  'Let''s <a href="https://try.jupyter.org/">try</a> this using this <a href="https://mybinder.org/v2/gh/laurentperrinet/2018-03-26_cours-NeuroComp_FEP/master?filepath=src%2F2017-01-15-bogacz-2017-a-tutorial-on-free-energy.ipynb">notebook</a> (<a href="https://laurentperrinet.github.io/sciblog/posts/2017-01-15-bogacz-2017-a-tutorial-on-free-energy.html">solution</a>)'
 
     bogacz_bib = s.content_bib("Bogacz", "2017", "Journal of Mathematical Psychology", url="http://dx.doi.org/10.1016/j.jmp.2015.11.003")
 
